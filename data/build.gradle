@@ -1,0 +1,59 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion rootProject.ext.androidVersions.compileSdk
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.androidVersions.minSdk
+        targetSdkVersion rootProject.ext.androidVersions.compileSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(':domain')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation rootProject.ext.moduleDependencies.retrofit
+    implementation rootProject.ext.moduleDependencies.retrofitGson
+
+    implementation rootProject.ext.moduleDependencies.okhttp
+    implementation rootProject.ext.moduleDependencies.okhttpLog
+
+
+    testImplementation rootProject.ext.moduleDependencies.mockito
+
+    implementation rootProject.ext.moduleDependencies.coroutineCore
+    implementation rootProject.ext.moduleDependencies.coroutineAndroid
+
+
+    implementation rootProject.ext.moduleDependencies.room
+    kapt rootProject.ext.moduleDependencies.kaptRoom
+    implementation rootProject.ext.moduleDependencies.roomTesting
+    implementation rootProject.ext.moduleDependencies.roomKtx
+
+
+    implementation rootProject.ext.moduleDependencies.paging
+
+}

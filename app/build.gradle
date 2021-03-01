@@ -1,0 +1,97 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+    compileSdkVersion rootProject.ext.androidVersions.compileSdk
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.androidVersions.minSdk
+        targetSdkVersion rootProject.ext.androidVersions.compileSdk
+        buildConfigField 'String', 'BASE_URL', '"https://static.leboncoin.fr/"'
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+    implementation project(':data')
+    implementation project(':domain')
+    implementation project(':core')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation rootProject.ext.moduleDependencies.kotlin_stdlib
+    implementation rootProject.ext.moduleDependencies.appcompat
+    implementation rootProject.ext.moduleDependencies.design
+    implementation rootProject.ext.moduleDependencies.core_ktx
+    implementation rootProject.ext.moduleDependencies.constraint_layout
+    implementation rootProject.ext.moduleDependencies.recyclerview
+
+    implementation rootProject.ext.moduleDependencies.coroutineCore
+    implementation rootProject.ext.moduleDependencies.coroutineAndroid
+    implementation rootProject.ext.moduleDependencies.retrofit
+    implementation rootProject.ext.moduleDependencies.retrofitGson
+
+    implementation rootProject.ext.moduleDependencies.lifeCycle
+    implementation rootProject.ext.moduleDependencies.lifeCycleViewModel
+
+    implementation rootProject.ext.moduleDependencies.glide
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.3'
+    kapt rootProject.ext.moduleDependencies.glideKapt
+
+    testImplementation rootProject.ext.moduleDependencies.mockito
+
+    implementation rootProject.ext.moduleDependencies.gson
+
+
+    implementation rootProject.ext.moduleDependencies.koinViewModel
+    api rootProject.ext.moduleDependencies.koin
+
+    implementation rootProject.ext.moduleDependencies.okhttp
+    implementation rootProject.ext.moduleDependencies.okhttpLog
+
+    //testing
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    testImplementation "org.assertj:assertj-core:3.11.1"
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.mockito:mockito-core:2.21.0"
+    testImplementation "com.squareup.retrofit2:retrofit-mock:$libVersions.retrofit"
+    testImplementation 'androidx.arch.core:core-testing:2.0.0'
+    testImplementation rootProject.ext.moduleDependencies.mockito
+
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.1'
+    testImplementation 'android.arch.core:core-testing:1.1.1'
+
+
+    testImplementation rootProject.ext.moduleDependencies.mockitoKotlin
+    testImplementation rootProject.ext.moduleDependencies.mockk
+
+
+    implementation rootProject.ext.moduleDependencies.room
+    kapt rootProject.ext.moduleDependencies.kaptRoom
+    implementation rootProject.ext.moduleDependencies.roomTesting
+
+
+}
