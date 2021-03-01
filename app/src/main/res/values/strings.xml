@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">AlbumAssessment</string>
+
+    <string name="app_name">LeboncoinAssessment</string>
+    <string name="search">Search</string>
+    <string name="label_home">List albums</string>
+
+
+    <string name="error_no_connection">Vérifiez votre connexion internet et réessayez plus tard</string>
+    <string name="technical_error_message">Une erreur est survenue, merci de réessayer ultérieurement.</string>
+
 </resources>

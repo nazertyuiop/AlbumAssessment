@@ -1,3 +1,4 @@
+include ':viewUtils'
 include ':data'
 include ':domain'
 include ':core'

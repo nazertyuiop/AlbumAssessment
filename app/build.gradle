@@ -36,6 +36,7 @@ dependencies {
     implementation project(':data')
     implementation project(':domain')
     implementation project(':core')
+    implementation project(':viewUtils')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation rootProject.ext.moduleDependencies.kotlin_stdlib
