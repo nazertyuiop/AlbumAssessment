@@ -9,8 +9,8 @@ import androidx.room.Query
 interface AlbumDao {
 
 
-    @Query(value = "SELECT * FROM album_table WHERE id = :albumId")
-    suspend fun getAlbum(albumId: Int): AlbumEntity
+    @Query(value = "SELECT * FROM album_table WHERE id = :id")
+    suspend fun getAlbum(id: Int): AlbumEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(album: AlbumEntity)

@@ -6,5 +6,5 @@ import org.koin.standalone.KoinComponent
 
 class GetAlbumDetailUsecase(private val albumRepository: AlbumRepository) : KoinComponent {
 
-    suspend fun exec(albumId: Int): Album = albumRepository.getAlbumDetail(albumId)
+    suspend fun exec(id: Int): Album = albumRepository.getAlbumDetail(id)
 }

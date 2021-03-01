@@ -10,6 +10,18 @@
         android:name="com.leboncoin.assessment.ui.home.HomeFragment"
         android:label="@string/label_home"
         tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_fragment_to_detail_fragment"
+            app:destination="@id/detail_album_fragment">
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/detail_album_fragment"
+        android:name="com.leboncoin.assessment.ui.detail.DetailAlbumFragment">
+        <argument
+            android:name="ID_ALBUM"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

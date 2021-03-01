@@ -23,8 +23,8 @@ class AlbumRepositoryImp(
         return AlbumDao.getNextAlbums().map { it.toModel() }
     }
 
-    override suspend fun getAlbumDetail(albumId: Int): Album {
-        return AlbumDao.getAlbum(albumId = albumId).toModel()
+    override suspend fun getAlbumDetail(id: Int): Album {
+        return AlbumDao.getAlbum(id = id).toModel()
     }
 
     @SuppressLint("CheckResult")

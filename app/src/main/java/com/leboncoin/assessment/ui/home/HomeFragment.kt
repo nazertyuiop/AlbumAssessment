@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.leboncoin.assessment.R
 import com.leboncoin.assessment.databinding.FragmentHomeBinding
+import com.leboncoin.assessment.ui.MainActivity
 import com.leboncoin.core.network.isNetworkRelated
 import com.leboncoin.domain.model.Album
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -63,7 +64,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showDetailAlbum(album: Album) {
-
+        album.id?.let { idAlbum ->
+            (activity as MainActivity).navigationController.navigate(
+                HomeFragmentDirections.actionHomeFragmentToDetailFragment(idAlbum)
+            )
+        }
     }
 
 

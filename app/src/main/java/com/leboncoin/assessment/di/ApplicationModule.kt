@@ -1,6 +1,7 @@
 package com.leboncoin.assessment.di
 
 import com.bumptech.glide.Glide
+import com.leboncoin.assessment.ui.detail.AlbumDetailViewModel
 import com.leboncoin.assessment.ui.home.HomeViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.ext.koin.viewModel
@@ -11,6 +12,7 @@ val applicationModule = module {
 
     single { Glide.get(androidContext()) }
     viewModel { HomeViewModel(get()) }
+    viewModel { AlbumDetailViewModel(get()) }
 
 }
 
